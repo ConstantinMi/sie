@@ -1,0 +1,47 @@
+package rules
+
+import ro.uaic.feaa.common.dto.Echilibru;
+
+dialect "java"
+
+rule "Situatie echilibru termen lung pozitiv"
+    when
+        echil : Echilibru(getFondRulment() > 0)
+    then
+        echil.getRezultat().put("fr", "Exista lichidiate in cazul firmei");
+end
+
+rule "Situatie echilibru termen lung negativ"
+    when
+        echil : Echilibru(getFondRulment() < 0)
+    then
+        echil.getRezultat().put("fr", "Nu exista lichidiate in cazul firmei");
+end
+
+rule "Situatie echilibru termen scurt pozitiv"
+    when
+        echil : Echilibru(getNecesarFondRulment() > 0)
+    then
+        echil.getRezultat().put("nfr", "Surplus de nevoi de stocuri si creante in raport cu resursele temporare posibil de mobilizat");
+end
+
+rule "Situatie echilibru termen scurt negativ"
+    when
+        echil : Echilibru(getNecesarFondRulment() < 0)
+    then
+        echil.getRezultat().put("nfr", "Surplus de resurse temporare in raport cu nevoile corespunzatoare de capitaluri circulante");
+end
+
+rule "Situatie echilibru curent pozitiv"
+    when
+        echil : Echilibru(getFondRulment() - getNecesarFondRulment() > 0)
+    then
+        echil.getRezultat().put("trz", "Situatie buna a intreprinderii");
+end
+
+rule "Situatie echilibru curent negativ"
+    when
+        echil : Echilibru(getFondRulment() - getNecesarFondRulment() < 0)
+    then
+        echil.getRezultat().put("trz", "Situatie nefavorabila a intreprinderii. Se apeleaza la credite de trezorerie");
+end

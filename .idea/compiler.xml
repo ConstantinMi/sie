@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sie-common" />
+        <module name="sie-dao" />
+        <module name="sie-entities" />
+        <module name="sie-rest" />
+        <module name="sie-service" />
+        <module name="sie-webclient" />
+        <module name="sie-webserver" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sie" target="1.8" />
+      <module name="sie-common" target="1.8" />
+      <module name="sie-dao" target="1.8" />
+      <module name="sie-entities" target="1.8" />
+      <module name="sie-rest" target="1.8" />
+      <module name="sie-service" target="1.8" />
+      <module name="sie-webclient" target="1.8" />
+      <module name="sie-webserver" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

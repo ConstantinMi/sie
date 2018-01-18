@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/sie.iml" filepath="$PROJECT_DIR$/sie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-common/sie-common.iml" filepath="$PROJECT_DIR$/sie-common/sie-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-dao/sie-dao.iml" filepath="$PROJECT_DIR$/sie-dao/sie-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-model/sie-entities.iml" filepath="$PROJECT_DIR$/sie-model/sie-entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-rest/sie-rest.iml" filepath="$PROJECT_DIR$/sie-rest/sie-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-service/sie-service.iml" filepath="$PROJECT_DIR$/sie-service/sie-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-webclient/sie-webclient.iml" filepath="$PROJECT_DIR$/sie-webclient/sie-webclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sie-webserver/sie-webserver.iml" filepath="$PROJECT_DIR$/sie-webserver/sie-webserver.iml" />
+    </modules>
+  </component>
+</project>

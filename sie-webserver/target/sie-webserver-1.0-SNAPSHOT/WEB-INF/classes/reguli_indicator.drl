@@ -1,0 +1,62 @@
+package rules
+
+import ro.uaic.feaa.common.dto.Indicator;
+
+dialect "java"
+
+rule "Situatie fonduri in functie de durata de rotatie negativa"
+	when
+		indicator: Indicator (getDurataRotatie()<0)
+	then
+		indicator.getRezultat().put("dr", "Fondurile se recupereaza rapid iar cifra de afaceri se reduce");
+end
+
+rule "Situatie fonduri in functie de durata de rotatie pozitiva"
+	when
+		indicator: Indicator (getDurataRotatie()>0)
+	then
+		indicator.getRezultat().put("dr", "Fondurile nu se recupereaza rapid iar cifra de afaceri creste");
+end
+
+rule "Situatie rata marja de siguranta pentru un numar <30 zile"
+	when
+		indicator: Indicator (getRataMarjaSiguranta()<30)
+	then
+		indicator.getRezultat().put("rms", "Rata marja siguranta mica");
+end
+
+rule "Situatie rata marja de siguranta pentru un numar 30-90 zile"
+	when
+		indicator: Indicator (getRataMarjaSiguranta()>30 && getRataMarjaSiguranta()<90)
+	then
+		indicator.getRezultat().put("rms", "Rata marja siguranta optima");
+end
+
+rule "Situatie rata marja de siguranta pentru un numar >90 zile"
+	when
+		indicator: Indicator (getRataMarjaSiguranta()>90)
+	then
+		indicator.getRezultat().put("rms", "Rata marja siguranta mare");
+end
+
+rule "Situatie rata de finantare a necesarului fond de rulment <100"
+	when
+		indicator: Indicator (getRataFinantareNecesarFondRulment()<100)
+	then
+		indicator.getRezultat().put("rfnfr", "Stare de dezechilibru ");
+end
+
+rule "Situatie rata de finantare a necesarului fond de rulment =100"
+	when
+		indicator: Indicator (getRataFinantareNecesarFondRulment() == 100)
+	then
+		indicator.getRezultat().put("rfnfr", "Stare ce corespunde principiilor de echilibru");
+end
+
+
+rule "Situatie rata de finantare a necesarului fond de rulment >100"
+	when
+		indicator: Indicator (getRataFinantareNecesarFondRulment()>100)
+	then
+		indicator.getRezultat().put("rfnfr", "Situatie buna pentru intreprindere ");
+end
